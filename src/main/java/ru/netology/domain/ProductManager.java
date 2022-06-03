@@ -5,16 +5,19 @@ import ru.netology.repository.ProductRepository;
 public class ProductManager {
     private ProductRepository repository;
 
-    public ProductManager(ProductRepository repository){this.repository = repository;}
+    public ProductManager(ProductRepository repository) {
+        this.repository = repository;
+    }
     // добавьте необходимые поля, конструкторы и методы
 
-    public void add(Product product){repository.save(product);
+    public void add(Product product) {
+        repository.save(product);
     }
 
 
     public Product[] searchBy(String name) {
         Product[] result = new Product[0]; // тут будем хранить подошедшие запросу продукты
-        for (Product product: repository.findAll()) {
+        for (Product product : repository.findAll()) {
             if (matches(product, name)) {
 
                 int lastIndex = result.length - 1;
