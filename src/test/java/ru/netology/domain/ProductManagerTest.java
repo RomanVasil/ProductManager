@@ -9,7 +9,6 @@ class ProductManagerTest {
 
     private ProductManager rep = new ProductManager(new ProductRepository());
 
-
     private Book product3 = new Book();
     private Smartphone product4 = new Smartphone();
 
