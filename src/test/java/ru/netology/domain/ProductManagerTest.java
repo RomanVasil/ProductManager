@@ -19,15 +19,13 @@ class ProductManagerTest {
         Product product3 = new Product(3, "Java1", 10);
         Product product4 = new Product(4, "Java", 10);
 
-
         rep.add(product3);
         rep.add(product4);
 
-        rep.searchBy("Java");
+        String name = "Java";
 
-//        Product[] expected = new Product[]{product3};
-//        Product[] actual = rep.searchBy("Java");
-//        assertArrayEquals(expected, actual);
+        Product[] expected = new Product[]{product4};
+        Product[] actual = rep.searchBy(name);
+        assertArrayEquals(expected, actual);
     }
-
 }
