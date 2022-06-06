@@ -15,7 +15,7 @@ class ProductManagerTest {
     @Test
     public void shouldSearchBy() {
 
-        Product product3 = new Product(3, "Javan", 10);
+        Product product3 = new Product(3, "JaIva", 10);
         Product product4 = new Product(4, "Java", 10);
 
         rep.add(product3);
