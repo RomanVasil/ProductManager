@@ -29,7 +29,7 @@ class ProductManagerTest {
     }
 
     @Test
-    public void shouldSearchBy0() {
+    public void shouldSearchByNoName() {
 
         Product product5 = new Product(5, "Javan", 10);
         Product product6 = new Product(6, "Java", 10);
@@ -43,4 +43,19 @@ class ProductManagerTest {
         Product[] actual = rep.searchBy(name);
         assertArrayEquals(expected, actual);
     }
+//    @Test
+//    public void shouldSearchByNoProduct() {
+//
+//        Product product5 = new Product(5, "Javan", 10);
+//        Product product6 = new Product(6, "Java", 10);
+//
+//        rep.add(product5);
+//        rep.add(product6);
+//
+//        String name = "Lost";
+//
+//        Product[] expected = new Product[]{};
+//        Product[] actual = rep.searchBy(name);
+//        assertArrayEquals(expected, actual);
+//    }
 }

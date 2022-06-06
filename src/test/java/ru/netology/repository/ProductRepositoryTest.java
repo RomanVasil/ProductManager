@@ -27,8 +27,8 @@ class ProductRepositoryTest {
     @Test
     public void shouldFindAll() {
 
-//        Product product1 = new Product(1, "Java", 10);
-//        Product product2 = new Product(2, "Java", 10);
+        Product product1 = new Product(1, "Java", 10);
+        Product product2 = new Product(2, "Java", 10);
 
         repository.save(product1);
         repository.save(product2);
