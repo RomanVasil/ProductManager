@@ -9,21 +9,17 @@ class ProductManagerTest {
 
     private ProductManager rep = new ProductManager(new ProductRepository());
 
-    private Book product3 = new Book();
-    private Smartphone product4 = new Smartphone();
-
     @Test
     public void shouldSearchBy() {
+        Product product1 = new Book(3, "JaIva", 10, "Shevchenko");
+        Product product2 = new Smartphone(4, "Java", 10, "China");
 
-        Product product3 = new Product(3, "JaIva", 10);
-        Product product4 = new Product(4, "Java", 10);
-
-        rep.add(product3);
-        rep.add(product4);
+        rep.add(product1);
+        rep.add(product2);
 
         String name = "Java";
 
-        Product[] expected = new Product[]{product4};
+        Product[] expected = new Product[]{product2};
         Product[] actual = rep.searchBy(name);
         assertArrayEquals(expected, actual);
     }
@@ -31,11 +27,11 @@ class ProductManagerTest {
     @Test
     public void shouldSearchByNoName() {
 
-        Product product5 = new Product(5, "Javan", 10);
-        Product product6 = new Product(6, "Java", 10);
+        Product product3 = new Book(5, "Javan", 10, "Shevchenko");
+        Product product4 = new Smartphone(6, "Java", 10, "China");
 
-        rep.add(product5);
-        rep.add(product6);
+        rep.add(product3);
+        rep.add(product4);
 
         String name = "Lost";
 
@@ -43,19 +39,14 @@ class ProductManagerTest {
         Product[] actual = rep.searchBy(name);
         assertArrayEquals(expected, actual);
     }
-//    @Test
-//    public void shouldSearchByNoProduct() {
-//
-//        Product product5 = new Product(5, "Javan", 10);
-//        Product product6 = new Product(6, "Java", 10);
-//
-//        rep.add(product5);
-//        rep.add(product6);
-//
-//        String name = "Lost";
-//
-//        Product[] expected = new Product[]{};
-//        Product[] actual = rep.searchBy(name);
-//        assertArrayEquals(expected, actual);
-//    }
+
+    @Test
+    public void shouldSearchByNoProduct() {
+
+        String name = "Lost";
+
+        Product[] expected = new Product[]{};
+        Product[] actual = rep.searchBy(name);
+        assertArrayEquals(expected, actual);
+    }
 }

@@ -9,10 +9,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ProductRepositoryTest {
     private ProductRepository repository = new ProductRepository();
-    private Book product1 = new Book();
-    private Smartphone product2 = new Smartphone();
 
-
+    Product product1 = new Book(1, "Java", 10, "Shevchenko");
+    Product product2 = new Smartphone(2, "Java", 10, "China");
 
     @Test
     public void shouldSaveProduct() {
@@ -26,10 +25,6 @@ class ProductRepositoryTest {
 
     @Test
     public void shouldFindAll() {
-
-        Product product1 = new Product(1, "Java", 10);
-        Product product2 = new Product(2, "Java", 10);
-
         repository.save(product1);
         repository.save(product2);
 
@@ -40,12 +35,7 @@ class ProductRepositoryTest {
     }
 
     @Test
-
-    public void  shouldRemoveById(){
-
-        Product product1 = new Product(1, "Java", 10);
-        Product product2 = new Product(2, "Java", 10);
-
+    public void shouldRemoveById() {
         repository.save(product1);
         repository.save(product2);
 
@@ -54,7 +44,6 @@ class ProductRepositoryTest {
         Product[] expected = {product1};
         Product[] actual = repository.findAll();
         assertArrayEquals(expected, actual);
-
     }
 }
 
