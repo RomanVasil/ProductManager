@@ -15,11 +15,30 @@ class ProductRepositoryTest {
     Product product3 = new Smartphone(3, "Java", 10, "China");
 
     @Test
-    public void shouldSaveProduct() {
+    public void shouldSaveProducts() {
         repository.save(product1);
         repository.save(product2);
 
         Product[] expected = new Product[]{product1, product2};
+        Product[] actual = repository.findAll();
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSaveNoProduct() {
+
+
+        Product[] expected = new Product[]{};
+        Product[] actual = repository.findAll();
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSaveOneProduct() {
+        repository.save(product1);
+
+
+        Product[] expected = new Product[]{product1};
         Product[] actual = repository.findAll();
         assertArrayEquals(expected, actual);
     }
@@ -30,6 +49,25 @@ class ProductRepositoryTest {
         repository.save(product2);
 
         Product[] expected = {product1, product2};
+        Product[] actual = repository.findAll();
+        // System.out.println(Arrays.toString(actual));
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldFindAllNoProduct() {
+
+        Product[] expected = {};
+        Product[] actual = repository.findAll();
+        // System.out.println(Arrays.toString(actual));
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldFindAllOneProduct() {
+        repository.save(product1);
+
+        Product[] expected = {product1};
         Product[] actual = repository.findAll();
         // System.out.println(Arrays.toString(actual));
         assertArrayEquals(expected, actual);
